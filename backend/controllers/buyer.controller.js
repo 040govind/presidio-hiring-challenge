@@ -10,9 +10,7 @@ const getAllProperty = async(req,res)=>{
             path: 'owner',
             select: '-password -role' // Exclude password and role fields
         });
-        //console.log(data);
-        //const likes = await Like.find({property:data._id});
-        //console.log(data._id);
+
         if(!data){
             throw new ApiError(500,"Something went wrong while Fetching the property"); 
         }
@@ -83,5 +81,4 @@ const sendMail = async(req,res)=>{
 export {
     getAllProperty,
     sendMail,
-    like
 }
