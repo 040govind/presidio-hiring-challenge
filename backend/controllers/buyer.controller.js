@@ -1,13 +1,7 @@
-import mongoose from "mongoose";
-import jwt from "jsonwebtoken";
 import { ApiResponse } from "../utils/ApiResponse.js";
 import {ApiError} from  "../utils/ApiError.js";
-import {User} from "../models/user.model.js";
 import {Property} from "../models/property.model.js";
-import {uploadOnCloudinary} from '../utils/cloudinary.js';
-import { compareSync } from "bcrypt";
 import { sendEmail } from "../utils/nodemailer.js";
-import { Like } from "../models/like.model.js";
 
 const getAllProperty = async(req,res)=>{
     try {
@@ -86,26 +80,6 @@ const sendMail = async(req,res)=>{
     }
 }
 
-const like = async(req,res)=>{
-    try {
-        //console.log(req.body);
-        const id = req.body.id;
-        let likeData = await Like.findOne({property:id});
-        if(!likeData){
-          await Like.create({
-            property:id,
-            users:[req.user._id]
-          });
-        }
-        else{
-            likeData.users.push(req.user._id);
-        }
-        res.status(200).json(new ApiResponse(200, null, "Liked Successfully"));
-    } catch (error) {
-        console.log(" server error while like the post  ",error);
-        res.status(500).json(new ApiResponse(500, null,"Some server error while like the post ")); 
-    }
-}
 export {
     getAllProperty,
     sendMail,
