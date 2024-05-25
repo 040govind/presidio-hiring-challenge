@@ -15,7 +15,7 @@ const SellerPropertyCard = ({ property, setLoad }) => {
     try {
       //console.log(id);
       const response = await axios.delete(
-        `http://localhost:8000/api/v1/seller/delete-property/${id}`,
+        `https://presidio-hiring-challenge-five.vercel.app/api/v1/seller/delete-property/${id}`,
         {
           headers: {
             "Content-Type": "application/json",

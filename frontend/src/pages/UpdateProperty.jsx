@@ -35,7 +35,7 @@ const UpdateProperty = () => {
     //console.log(formData); 
     try {
       
-      const response= await  axios.put('http://localhost:8000/api/v1/seller/update-property', formData, {
+      const response= await  axios.put('https://presidio-hiring-challenge-five.vercel.app/api/v1/seller/update-property', formData, {
         headers: {
           'Content-Type': 'application/json',
            Authorization: localStorage.getItem('token'),

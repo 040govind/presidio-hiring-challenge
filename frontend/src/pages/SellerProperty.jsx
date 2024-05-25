@@ -6,7 +6,7 @@ const SellerProperty = () => {
   const [load ,setLoad] = useState(false);
   const fetchProperty = async()=>{
     try {
-        const response= await  axios.get('http://localhost:8000/api/v1/seller/fetch-property', {
+        const response= await  axios.get('https://presidio-hiring-challenge-five.vercel.app/api/v1/seller/fetch-property', {
             headers: {
               'Content-Type': 'application/json',
                Authorization: localStorage.getItem('token'),
