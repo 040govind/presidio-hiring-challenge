@@ -18,11 +18,12 @@ Rentify is a real estate website designed to facilitate the rental process for b
 
 ## Live Link
 
-[Visit Rentify](#) - Add your live link here once your project is deployed.
+[Front-end](https://presidio-hiring-challenge-a11v.vercel.app/) 
+[Back-end](https://presidio-hiring-challenge-five.vercel.app/) 
 
 ## Technology Stack
 
-- **Frontend**: HTML, CSS, JavaScript (Add additional frontend technologies if applicable)
+- **Frontend**: React js
 - **Backend**: Node.js, Express.js
 - **Database**: MongoDB (Or mention your preferred database)
 - **Authentication**: JSON Web Tokens (JWT) for user authentication
