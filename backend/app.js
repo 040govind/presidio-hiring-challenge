@@ -19,6 +19,10 @@ app.use(cors());
     import publicRoutes from './routes/public.routes.js';
      import sellerRoutes from './routes/seller.routes.js';
      import buyerRoutes from './routes/buyer.routes.js';
+    
+     app.get('/', (req, res) => {
+        res.send('Hey this is my API running 🥳')
+      })
     app.use('/api/v1/auth',publicRoutes);
     app.use('/api/v1/seller',sellerRoutes);
     app.use('/api/v1/buyer',buyerRoutes);
