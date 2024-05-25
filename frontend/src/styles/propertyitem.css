@@ -1,0 +1,64 @@
+.property-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* Ensure children are centered */
+  }
+  
+  .search-box {
+    margin: 20px 0;
+    width: 80%;
+    display: flex;
+    justify-content: center;
+  }
+  
+  .search-box input {
+    width: 100%;
+    max-width: 600px; /* Set a max-width to prevent it from being too wide */
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 16px;
+  }
+  
+  .property-list {
+    display: flex;
+    flex-wrap: wrap;
+    /* justify-content: center; Center the property items */
+    width: 100%;
+  }
+  .search-box select {
+    margin-left: 10px; /* Add some space between input and dropdown */
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 16px;
+    background-color: rgb(7, 135, 135);
+    cursor: pointer;
+  }
+
+  .pagination {
+    display: flex;
+    justify-content: center;
+    margin: 20px 0;
+  }
+  
+  .pagination button {
+    margin: 0 5px;
+    padding: 10px 15px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    background-color: #45384d;
+    cursor: pointer;
+  }
+  
+  .pagination button.active {
+    background-color: #007bff;
+    color: #fff;
+    border: 1px solid #007bff;
+  }
+  
+  .pagination button:disabled {
+    background-color: #e9ecef;
+    color: #6c757d;
+    cursor: not-allowed;
+  }

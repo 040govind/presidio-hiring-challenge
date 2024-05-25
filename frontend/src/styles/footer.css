@@ -1,0 +1,63 @@
+/* src/Footer.css */
+* {
+    box-sizing: border-box;
+  }
+  
+  .footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 20px;
+    background-color: #333;
+    color: #fff;
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    max-width: 100%;
+    box-shadow: 0 -2px 5px rgba(0, 0, 0, 0.2);
+    z-index: 1000;
+    margin: 0;
+    left: 0; /* Ensure footer is aligned to the left of the screen */
+  }
+  
+  .footer-left,
+  .footer-right,
+  .footer-center {
+    display: flex;
+    align-items: center;
+  }
+  
+  .footer-left p,
+  .footer-right p,
+  .footer-center p {
+    margin: 0;
+  }
+  
+  .footer-center {
+    display: block;
+  }
+  
+  /* Responsive */
+  @media (max-width: 768px) {
+    .footer {
+      flex-direction: column;
+      text-align: center;
+      padding: 10px;
+    }
+  
+    .footer-left,
+    .footer-right {
+      justify-content: center;
+      margin: 5px 0;
+    }
+  
+    .footer-center {
+      display: block;
+    }
+  }
+  
+  /* Ensure the main content has some bottom padding to avoid overlap with the footer */
+  .main-content {
+    padding-bottom: 60px; /* Adjust this value to match the footer's height */
+  }
+  
