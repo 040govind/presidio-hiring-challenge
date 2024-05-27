@@ -9,6 +9,21 @@ const propertySchema = new mongoose.Schema({
         type: String,
         required: true
     },
+    noOfBadroom:{
+        type:String,
+        required:true
+
+    },
+    noOfBathroom:{
+        type:String,
+        required:true
+
+    },
+    nearByHospital:{
+        type:String,
+        required:true
+
+    },
     address: {
         type: String,
         required: true
