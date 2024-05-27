@@ -87,7 +87,7 @@ const token =localStorage.getItem("token");
             alert("This is your property");
             return;
           }
-          const response= await  axios.post('http://localhost:8000/api/v1/buyer/send-mail', {propertyData:property}, {
+          const response= await  axios.post('https://presidio-hiring-challenge-five.vercel.app/api/v1/buyer/send-mail', {propertyData:property}, {
         headers: {
           'Content-Type': 'application/json',
            Authorization: localStorage.getItem('token'),
