@@ -28,7 +28,7 @@ console.log(userData);
   return (
     <nav className="navbar">
       <div className="navbar-logo">
-        <Link to="/">MyLogo</Link>
+        <Link to="/">Rentify</Link>
       </div>
       <ul className="navbar-links">
         {!isLoggedIn && (
@@ -36,6 +36,7 @@ console.log(userData);
             <li><Link to="/">Home</Link></li>
             <li><Link to="/login">Login</Link></li>
             <li><Link to="/register">Register</Link></li>
+            <li><Link to="/view-list">View List</Link></li>
           </>
         )}
         {isLoggedIn && !isSeller && (

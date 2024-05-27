@@ -4,7 +4,7 @@ import {verifySellerJWT} from '../middleware/seller.auth.js'
 import { verifyJWT } from "../middleware/buyer.auth.js";
 import { getAllProperty,sendMail } from "../controllers/buyer.controller.js";
 const router =Router();
-router.route('/fetch-property').get(verifyJWT,getAllProperty);
+router.route('/fetch-property').get(getAllProperty);
 router.route('/send-mail').post(verifyJWT,sendMail);
 
 export default router;

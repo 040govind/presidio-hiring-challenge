@@ -79,12 +79,12 @@ function App() {
          <Route
             path="/view-list"
             element={
-                <Protected>
+  
                   <Layout>
                  {" "}
                   <PropertyItem/>
                 </Layout>
-                </Protected>
+      
             }
           />
       </Routes>

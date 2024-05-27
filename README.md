@@ -5,12 +5,14 @@ Rentify is a real estate website designed to facilitate the rental process for b
 ## Features
 
 ### For Renters (Buyer Side)
+
 - **Login/Sign Up**: Renters can create an account or log in to access the platform.
 - **View Property**: Browse through a wide range of rental properties listed on the platform.
 - **Property Details**: View detailed information about each property, including images, location, amenities, and rental terms.
 - **View Owner Details**: Access contact information and details of the property owner to facilitate communication.
 
 ### For Property Owners (Seller Side)
+
 - **Login/Sign Up**: Property owners can create an account or log in to manage their properties.
 - **Add Property**: Easily add new rental properties to the platform, providing comprehensive details such as property type, location, rent amount, and images.
 - **View Own Property**: Access a dashboard to view and manage the properties listed by the owner.
@@ -18,8 +20,8 @@ Rentify is a real estate website designed to facilitate the rental process for b
 
 ## Live Link
 
-[Front-end](https://presidio-hiring-challenge-a11v.vercel.app/) 
-[Back-end](https://presidio-hiring-challenge-five.vercel.app/) 
+[Front-end](https://presidio-hiring-challenge-a11v.vercel.app/)
+[Back-end](https://presidio-hiring-challenge-five.vercel.app/)
 
 ## Technology Stack
 
@@ -31,11 +33,13 @@ Rentify is a real estate website designed to facilitate the rental process for b
 ## Usage
 
 ### For Renters (Buyer Side)
+
 - **Sign Up/Login**: Create an account or log in to access the platform.
 - **Search Properties**: Browse through available properties using search filters or by location.
 - **View Property Details**: Click on a property to view detailed information and contact the property owner if interested.
 
 ### For Property Owners (Seller Side)
+
 - **Sign Up/Login**: Create an account or log in to manage properties.
 - **Add Property**: Fill out the property details form to list a new property for rent.
 - **Manage Properties**: View and edit the properties listed by the owner, including updating rental terms and property information.

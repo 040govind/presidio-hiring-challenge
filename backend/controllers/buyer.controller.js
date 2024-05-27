@@ -4,24 +4,25 @@ import {Property} from "../models/property.model.js";
 import { sendEmail } from "../utils/nodemailer.js";
 
 const getAllProperty = async(req,res)=>{
-    try {
-        const user = req.user;
-        const data = await Property.find({ owner: { $ne: user._id } }).populate({
-            path: 'owner',
-            select: '-password -role' // Exclude password and role fields
-        });
-
-        if(!data){
-            throw new ApiError(500,"Something went wrong while Fetching the property"); 
-        }
-        
-        res.status(200).json(new ApiResponse(200, data, "Properties fetched successfully"));
-    } catch (error) {
-        console.log(" server error while fetching property ",error);
-        res.status(500).json(new ApiResponse(500, null,"Some server error while fetching property")); 
-    }
+  try {
+      //const user = req.user;
+      const data = await Property.find().populate({
+          path: 'owner',
+          select: '-password -role' // Exclude password and role fields
+      });
+      //console.log(data);
+      //const likes = await Like.find({property:data._id});
+      //console.log(data._id);
+      if(!data){
+          throw new ApiError(500,"Something went wrong while Fetching the property"); 
+      }
+      
+      res.status(200).json(new ApiResponse(200, data, "Properties fetched successfully"));
+  } catch (error) {
+      console.log(" server error while fetching property ",error);
+      res.status(500).json(new ApiResponse(500, null,"Some server error while fetching property")); 
+  }
 }
-
 const sendMail = async(req,res)=>{
     try {
         console.log(req.body.propertyData);
