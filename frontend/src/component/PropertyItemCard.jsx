@@ -98,16 +98,16 @@ const PropertyItemCard = ({ property }) => {
   return (
     <div className="property-item">
       <div className="property-image">
-        <img src={property.image} alt={property.name} />
+        <img src={property?.image} alt={property.name} />
       </div>
       <div className="property-details">
-        <h2>{property.name}</h2>
-        <p>{property.description}</p>
+        <h2>{property?.name}</h2>
+        <p>{property?.description}</p>
         <p>
-          <strong>Location:</strong> {property.place}, {property.city}, {property.state}, {property.country}
+          <strong>Location:</strong> {property?.place}, {property?.city}, {property?.state}, {property?.country}
         </p>
         <p>
-          <strong>Price:</strong> {property.price}
+          <strong>Price:</strong> {property?.price}
         </p>
         <div className="property-actions">
           <button onClick={toggleDetails}>{showDetails ? 'Hide Details' : 'Show More Details'}</button>
@@ -118,9 +118,9 @@ const PropertyItemCard = ({ property }) => {
         {showDetails && (
           <div className="owner-details">
             <h3>Owner Details</h3>
-            <p><strong>Name:</strong> {property.owner.firstname} {property.owner.lastname}</p>
-            <p><strong>Mobile:</strong> {property.owner.phone}</p>
-            <p><strong>Email:</strong> {property.owner.email}</p>
+            <p><strong>Name:</strong> {property?.owner.firstname} {property?.owner.lastname}</p>
+            <p><strong>Mobile:</strong> {property?.owner.phone}</p>
+            <p><strong>Email:</strong> {property?.owner.email}</p>
             <div className="owner-actions">
              
               <button onClick={handleInterest}>I am Interested</button>
