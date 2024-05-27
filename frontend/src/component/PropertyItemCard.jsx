@@ -2,18 +2,26 @@ import React, { useState } from 'react';
 import '../styles/propertyitemcard.css';
 import axios from 'axios';
 import { jwtDecode } from "jwt-decode";
+import { useNavigate } from 'react-router-dom';
 const PropertyItemCard = ({ property }) => {
   const [showDetails, setShowDetails] = useState(false);
   const [showOwnerDetails, setShowOwnerDetails] = useState(false);
-//   const [userData, setUserData] = useState(localStorage.getItem("token")
-//     ? jwtDecode(localStorage.getItem("token"))
-//     : ""
-//   );
+  const [userData, setUserData] = useState(localStorage.getItem("token")
+    ? jwtDecode(localStorage.getItem("token"))
+    : ""
+  );
+const token =localStorage.getItem("token");
   const [liked, setLiked] = useState(false);
   const [interested, setInterested] = useState(false);
+  const navigate = useNavigate();
   //console.log(likes);
   const toggleDetails = () => {
-    setShowDetails(!showDetails);
+    if(!token){
+       navigate('/login')
+    }else{
+      setShowDetails(!showDetails);
+    }
+    
   };
 
  
@@ -74,7 +82,12 @@ const PropertyItemCard = ({ property }) => {
     const handleInterest = async () => {
         try {
           // Make POST request to backend with property data
-          const response= await  axios.post('https://presidio-hiring-challenge-five.vercel.app/api/v1/buyer/send-mail', {propertyData:property}, {
+          console.log(userData.user);
+          if(property.owner._id === userData.user._id){
+            alert("This is your property");
+            return;
+          }
+          const response= await  axios.post('http://localhost:8000/api/v1/buyer/send-mail', {propertyData:property}, {
         headers: {
           'Content-Type': 'application/json',
            Authorization: localStorage.getItem('token'),
@@ -98,29 +111,29 @@ const PropertyItemCard = ({ property }) => {
   return (
     <div className="property-item">
       <div className="property-image">
-        <img src={property?.image} alt={property?.name} />
+        <img src={property.image} alt={property.name} />
       </div>
       <div className="property-details">
-        <h2>{property?.name}</h2>
-        <p>{property?.description}</p>
+        <h2>{property.name}</h2>
+        <p>{property.description}</p>
         <p>
-          <strong>Location:</strong> {property?.place}, {property?.city}, {property?.state}, {property?.country}
+          <strong>Location:</strong> {property.place}, {property.city}, {property.state}, {property.country}
         </p>
         <p>
-          <strong>Price:</strong> {property?.price}
+          <strong>Price:</strong> {property.price}
         </p>
         <div className="property-actions">
           <button onClick={toggleDetails}>{showDetails ? 'Hide Details' : 'Show More Details'}</button>
-          <button onClick={()=>handleLike(property?._id)}>
+          <button onClick={()=>handleLike(property._id)}>
             {liked ? <span>&#9829;</span> : <span>&#9825;</span>} Like
           </button>
         </div>
         {showDetails && (
           <div className="owner-details">
             <h3>Owner Details</h3>
-            <p><strong>Name:</strong> {property?.owner.firstname} {property?.owner.lastname}</p>
-            <p><strong>Mobile:</strong> {property?.owner.phone}</p>
-            <p><strong>Email:</strong> {property?.owner.email}</p>
+            <p><strong>Name:</strong> {property.owner.firstname} {property.owner.lastname}</p>
+            <p><strong>Mobile:</strong> {property.owner.phone}</p>
+            <p><strong>Email:</strong> {property.owner.email}</p>
             <div className="owner-actions">
              
               <button onClick={handleInterest}>I am Interested</button>
