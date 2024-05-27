@@ -111,7 +111,7 @@ const PropertyItemCard = ({ property }) => {
         </p>
         <div className="property-actions">
           <button onClick={toggleDetails}>{showDetails ? 'Hide Details' : 'Show More Details'}</button>
-          <button onClick={()=>handleLike(property._id)}>
+          <button onClick={()=>handleLike(property?._id)}>
             {liked ? <span>&#9829;</span> : <span>&#9825;</span>} Like
           </button>
         </div>
