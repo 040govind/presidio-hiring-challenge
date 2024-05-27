@@ -9,25 +9,25 @@ cloudinary.config({
   api_secret: "DNc-a9L9f3z4FO5ggTrgcVMNR34" 
 });
 
-const uploadOnCloudinary =async (localFilePath,targetFolder)=>{
-     try {
-        // console.log("hhhhhhhh");
-        if(!localFilePath)return null;
-        const response=await cloudinary.uploader.upload(localFilePath,{
-            resource_type:"auto",
-            folder:targetFolder
-        });
-      //   console.log("file upload on cloudinary",response.url);
-        fs.unlinkSync(localFilePath);
-        return response;
+const uploadOnCloudinary = async (fileBuffer, targetFolder) => {
+  try {
+    if (!fileBuffer) return null;
 
-     } catch (error) {
-        //agar koi problem aai to file ko local server se hata denge;
-        console.log("cloudinary",error);
-        fs.unlinkSync(localFilePath);
-        return null;
+    // Convert the file buffer to a Base64-encoded string
+    const fileDataUrl = `data:image/jpeg;base64,${fileBuffer.toString("base64")}`;
 
-     }
-}
+    // Upload the file directly to Cloudinary
+    const response = await cloudinary.uploader.upload(fileDataUrl, {
+      resource_type: "image", // Adjust the resource type as needed
+      folder: targetFolder
+    });
 
-export {uploadOnCloudinary}
+    //console.log("File uploaded successfully:", response.url);
+    return response;
+  } catch (error) {
+    console.error("Upload to Cloudinary failed:", error);
+    return null;
+  }
+};
+
+export { uploadOnCloudinary };

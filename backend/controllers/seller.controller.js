@@ -8,7 +8,7 @@ import {uploadOnCloudinary} from '../utils/cloudinary.js';
 
 const addProperty = async(req,res)=>{
     try {
-        // console.log(req.body);
+       // console.log(req.file.buffer);
         // console.log(req.user);
         // console.log(req.file);
         const {name,description,noOfBadroom,noOfBathroom,nearByHospital,address,city,state,country,price} = req.body;
@@ -20,14 +20,21 @@ const addProperty = async(req,res)=>{
             throw  new ApiError(400,"All fields are required");
         }
         
-        const imageLocalPath = req?.file?.path;
-        if(!imageLocalPath){
-            throw new ApiError(401,"Image file is required");
-        }
+        // const imageLocalPath = req?.file?.path;
+        // if(!imageLocalPath){
+        //     throw new ApiError(401,"Image file is required");
+        // }
          
-        const image= await uploadOnCloudinary(imageLocalPath,"journal_degree");
+        // const image= await uploadOnCloudinary(imageLocalPath,"journal_degree");
         
-    
+        // Check if image file is provided
+if (!req.file) {
+    throw new ApiError(400, "Image file is required");
+}
+
+// Upload the image directly to Cloudinary
+  const image = await uploadOnCloudinary(req.file.buffer, "journal_degree");
+  //console.log(image);
         if(!image)
         {
             
