@@ -98,7 +98,7 @@ const PropertyItemCard = ({ property }) => {
   return (
     <div className="property-item">
       <div className="property-image">
-        <img src={property?.image} alt={property.name} />
+        <img src={property?.image} alt={property?.name} />
       </div>
       <div className="property-details">
         <h2>{property?.name}</h2>
