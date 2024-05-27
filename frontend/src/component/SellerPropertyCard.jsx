@@ -46,6 +46,15 @@ const SellerPropertyCard = ({ property, setLoad }) => {
         <h2>{property.name}</h2>
         <p>{property.description}</p>
         <p>
+          <strong>No of Badroom:</strong> {property.noOfBadroom}
+        </p>
+        <p>
+          <strong>No of Bathroom:</strong> {property.noOfBathroom}
+        </p>
+        <p>
+          <strong>Near By Hospital:</strong> {property.nearByHospital}
+        </p>
+        <p>
           <strong>Place:</strong> {property.address}
         </p>
         <p>

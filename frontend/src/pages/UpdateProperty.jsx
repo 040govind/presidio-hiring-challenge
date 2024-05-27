@@ -11,6 +11,9 @@ const UpdateProperty = () => {
     id:property._id,
     name: property.name,
     description: property.description,
+    noOfBadroom:property.noOfBadroom,
+    noOfBathroom:property.noOfBathroom,
+    nearByHospital:property.nearByHospital,
     address: property.address,
     city: property.city,
     state: property.state,
@@ -33,6 +36,27 @@ const UpdateProperty = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     //console.log(formData); 
+    if (
+      !formData.name ||
+      !formData.description ||
+      !formData.address ||
+      !formData.noOfBadroom ||
+      !formData.noOfBathroom ||
+      !formData.nearByHospital ||
+      !formData.city ||
+      !formData.state ||
+      !formData.country ||
+      !formData.image ||
+      !formData.price
+    ) {
+      alert('All fields are required.');
+      return;
+    }
+
+    if (formData.price < 0) {
+      alert('Price must be a positive number.');
+      return;
+    }
     try {
       
       const response= await  axios.put('https://presidio-hiring-challenge-five.vercel.app/api/v1/seller/update-property', formData, {
@@ -67,6 +91,18 @@ const UpdateProperty = () => {
         <div className="form-group">
           <label htmlFor="description">Description:</label>
           <textarea name="description" value={formData.description} onChange={handleChange} className="form-control" />
+        </div>
+        <div className="form-group">
+          <label htmlFor="noOfBadroom">Number Of Badroom:</label>
+          <input type='number' name="noOfBadroom" value={formData.noOfBadroom} onChange={handleChange} className="form-control" />
+        </div>
+        <div className="form-group">
+          <label htmlFor="noOfBathroom">Number Of Bathroom:</label>
+          <input type='number' name="noOfBathroom" value={formData.noOfBathroom} onChange={handleChange} className="form-control" />
+        </div>
+        <div className="form-group">
+          <label htmlFor="nearByHospital">Nearby Hospital Name:</label>
+          <input type='text' name="nearByHospital" value={formData.nearByHospital} onChange={handleChange} className="form-control" />
         </div>
         <div className="form-group">
           <label htmlFor="address">Address:</label>

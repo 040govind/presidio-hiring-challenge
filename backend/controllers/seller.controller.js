@@ -11,7 +11,7 @@ const addProperty = async(req,res)=>{
         // console.log(req.body);
         // console.log(req.user);
         // console.log(req.file);
-        const {name,description,address,city,state,country,price} = req.body;
+        const {name,description,noOfBadroom,noOfBathroom,nearByHospital,address,city,state,country,price} = req.body;
         const user= req.user;
         if(
             [name,description,address,city,state,country,price].some((field)=> field?.trim() === "")
@@ -37,6 +37,9 @@ const addProperty = async(req,res)=>{
         const data = Property.create({
             name,
             description,
+            noOfBadroom,
+            noOfBathroom,
+            nearByHospital,
             address,
             city,
             state,
